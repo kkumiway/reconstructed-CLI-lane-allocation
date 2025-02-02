@@ -7,6 +7,14 @@ public class Pool {
         this.closingTime = closingTime;
     }
 
+    public int getOpeningTime() {
+        return openingTime;
+    }
+
+    public int getClosingTime() {
+        return closingTime;
+    }
+
     // 해당 시간에 수영장이 열려 있는지 확인
     public boolean isOpen(int time) {
         return time >= openingTime && time <= closingTime;

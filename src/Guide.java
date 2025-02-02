@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class Guide {
@@ -7,7 +6,7 @@ public class Guide {
 
     public void printStartGuide(){
         System.out.println("************************************************");
-        System.out.println("         🌊🌊🌊 카테부 수영장에 오신 것을 환영합니다! 🌊🌊🌊");
+        System.out.println("     🌊🌊🌊 카테부 수영장에 오신 것을 환영합니다! 🌊🌊🌊");
         System.out.println("************************************************");
     }
 
@@ -21,5 +20,7 @@ public class Guide {
         for(FreeLane lane : freeLanes) {
             lane.printStatus();
         }
+
+        System.out.println("-------------------------------------------------\n");
     }
 }

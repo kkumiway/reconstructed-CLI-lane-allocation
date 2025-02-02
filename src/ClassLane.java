@@ -11,8 +11,20 @@ public class ClassLane extends Lane {
         this.isChildLane = isChildLane;
     }
 
-    public boolean assignLane(Person person) {
-        if (person.getExp() >= minExp) {
+    public int getMinExp(){
+        return minExp;
+    }
+
+    public boolean getIsChildLane(){
+        return isChildLane;
+    }
+
+    public void assignLane(Person person) {
+        System.out.println(person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
+    }
+
+    public boolean assignChildLane(Person person) {
+        if (isChildLane) {
             System.out.println(person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
             return true;
         }
@@ -25,7 +37,7 @@ public class ClassLane extends Lane {
             System.out.println(laneNum + "번 레인 - 강좌명: 어린이 레인, 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
         }
         else{
-            System.out.println(laneNum + "번 레인 - 강좌명: " + course + "(최소 경력 " + minExp + "개월 이상)" + "레인 길이: " + length + "m, 레인 수심: " + depth + "m");
+            System.out.println(laneNum + "번 레인 - 강좌명: " + course + "(최소 경력 " + minExp + "개월 이상), " + "레인 길이: " + length + "m, 레인 수심: " + depth + "m");
         }
     }
 }

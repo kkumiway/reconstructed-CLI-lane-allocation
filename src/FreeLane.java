@@ -18,12 +18,12 @@ public class FreeLane extends Lane {
     }
 
     public void assignLane(Person person) {
-        System.out.println(person.getName() + "님은 " + laneNum + "번 레인(자유수영, 핀 사용)에 배정되었습니다.");
+        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 자유 레인에 배정되었습니다.");
     }
 
     public boolean assignFinLane(Person person) {
         if (useFin) {
-            System.out.println(person.getName() + "님은 " + laneNum + "번 레인(자유수영, 핀 사용)에 배정되었습니다.");
+            System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(자유수영, 핀 사용)에 배정되었습니다.");
             return true;
         }
         return false;

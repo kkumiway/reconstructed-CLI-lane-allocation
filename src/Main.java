@@ -30,7 +30,7 @@ public class Main {
         guide.printLaneList(classLanes, freeLanes);
 
         // 1. 이용 시간 입력
-        System.out.print("몇 시에 이용할 예정인가요? (숫자만 입력하세요.) ");
+        System.out.print("\n몇 시에 이용할 예정인가요? (숫자만 입력하세요.) ");
         int time = scanner.nextInt();
         if (!pool.isOpen(time)) {
             System.out.println("이용 가능 시간이 아닙니다. 프로그램을 다시 실행해주세요.");
@@ -41,15 +41,15 @@ public class Main {
         }
 
         // 사용자 정보 입력
-        System.out.print("이름을 입력하세요: ");
+        System.out.print("\n이름을 입력하세요: ");
         String name = scanner.next();
-        System.out.print("수영 경력(개월)을 입력하세요: ");
+        System.out.print("\n수영 경력(개월)을 입력하세요: ");
         int experience = scanner.nextInt();
 
         Person person = new Person(name, experience);
 
         // 2. 어린이 여부
-        System.out.print("어린이인가요? (Yes: 1, No: 0) ");
+        System.out.print("\n어린이인가요? (Yes: 1, No: 0) ");
         int isChild = scanner.nextInt();
 
         // 어린이라면 어린이 대상 강습 레인으로 배정
@@ -62,7 +62,7 @@ public class Main {
         }
 
         // 3. 강습 vs 자유 선택
-        System.out.print("강습 레인(1) 또는 자유 레인(2)을 선택하세요: ");
+        System.out.print("\n강습 레인(1) 또는 자유 레인(2)을 선택하세요: ");
         int choice = scanner.nextInt();
 
         if (choice == 1) { // 강습 레인 선택
@@ -86,7 +86,7 @@ public class Main {
         }
 
         if (choice == 2) { // 자유 레인 선택
-            System.out.print("핀을 사용하시겠습니까? (Yes: 1, No: 0) ");
+            System.out.print("\n핀을 사용하시겠습니까? (Yes: 1, No: 0) ");
             int wantsFin = scanner.nextInt();
 
             if (wantsFin == 1) {

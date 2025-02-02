@@ -20,12 +20,12 @@ public class ClassLane extends Lane {
     }
 
     public void assignLane(Person person) {
-        System.out.println(person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
+        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
     }
 
     public boolean assignChildLane(Person person) {
         if (isChildLane) {
-            System.out.println(person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
+            System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
             return true;
         }
         return false;

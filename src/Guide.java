@@ -21,6 +21,6 @@ public class Guide {
             lane.printStatus();
         }
 
-        System.out.println("-------------------------------------------------\n");
+        System.out.println("-------------------------------------------------");
     }
 }

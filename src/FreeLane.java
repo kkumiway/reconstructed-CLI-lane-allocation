@@ -35,7 +35,7 @@ public class FreeLane extends Lane {
             System.out.println(laneNum + "번 레인 - 자유수영(핀 사용), 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
         }
         else{
-            System.out.println(laneNum + "번 레인 - 자유수영(최소 경력: " + minExp + "), 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
+            System.out.println(laneNum + "번 레인 - 자유수영(최소 경력: " + minExp + "개월), 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
         }
     }
 }

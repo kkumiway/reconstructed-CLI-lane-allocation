@@ -63,4 +63,4 @@ Chunsik님은 1번 레인(어린이)에 배정되었습니다.
 ```
 ### 개발 환경
 - 언어: JAVA21
-- IDE: IntelliJ IDEA
+- IDE: IntelliJ IDEA  

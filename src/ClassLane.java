@@ -37,7 +37,7 @@ public class ClassLane extends Lane {
             System.out.println(laneNum + "번 레인 - 강좌명: 어린이 레인, 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
         }
         else{
-            System.out.println(laneNum + "번 레인 - 강좌명: " + course + "(최소 경력 " + minExp + "개월 이상), " + "레인 길이: " + length + "m, 레인 수심: " + depth + "m");
+            System.out.println(laneNum + "번 레인 - 강좌명: " + course + "(최소 경력: " + minExp + "개월), 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
         }
     }
 }

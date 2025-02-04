@@ -53,8 +53,8 @@ public class Main {
         while (true) {
             System.out.print("\n이름을 입력하세요: ");
             name = scanner.next();
-            if (name.isEmpty()) { // 입력값이 비었을 경우 재입력 요구
-                System.out.println("이름을 입력해주세요.");
+            if (name.isEmpty()) { // 입력되지 않았을 경우 재입력 요구
+                System.out.println("\n이름을 입력해주세요.");
             } else {
                 break;
             }

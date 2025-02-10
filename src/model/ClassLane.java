@@ -21,16 +21,22 @@ public class ClassLane extends Lane {
         return isChildLane;
     }
 
-    public void assignLane(Person person) {
-        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
+    public boolean checkIfChildLane(){
+        if (isChildLane){
+            return true;
+        }else {
+            return false;
+        }
     }
 
-    public boolean assignChildLane(Person person) {
-        if (isChildLane) {
-            System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
-            return true;
-        }
-        return false;
+    public boolean checkIfSuitableLane(Person person){
+        // 어린이 레인이 아닌 레인에서만 실행
+        // 지금 레인의 요구 경력 <= 이용자의 경력 < 다음 레인의 요구 경력일 때만 배정
+        return !isChildLane && (person.getExp() >= minExp);
+    }
+
+    public void printResult(Person person){
+        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
     }
 
     @Override

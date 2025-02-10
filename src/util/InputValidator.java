@@ -95,4 +95,23 @@ public class InputValidator {
         }
         return choice;
     }
+
+    public static boolean getUseFin(Scanner scanner) {
+        int wantsFin = -1;
+        while (true) {
+            System.out.print("\n핀을 사용하시겠습니까? (Yes: 1, No: 0) ");
+            try {
+                wantsFin = scanner.nextInt();
+                if (wantsFin != 0 && wantsFin != 1) { // 0 또는 1이 아닌 숫자를 입력할 경우 재입력 요구
+                    System.out.println("1 또는 0만 입력해주세요.");
+                } else {
+                    break;
+                }
+            } catch (InputMismatchException e) { // 입력값이 숫자가 아닌 경우 재입력 요구
+                System.out.println("잘못된 입력입니다. 1 또는 0만 입력해주세요.");
+                scanner.next();  // 잘못된 입력을 처리하기 위해 버퍼를 클리어
+            }
+        }
+        return wantsFin == 1;
+    }
 }

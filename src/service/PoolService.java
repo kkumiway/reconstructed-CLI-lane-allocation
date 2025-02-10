@@ -27,32 +27,54 @@ public class PoolService {
                 new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 7, 25, 1.2, 3, false),
                 new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 8, 25, 1.2, 6, false),
                 new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 9, 50, 1.4, 12, false),
-                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 10, 50, 1.4, 12, true)
+                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 10, 50, 1.4, 1, true)
         );
     }
 
-    public void assignLane(Person person, boolean isChild, int choice, List<ClassLane> classLanes, List<FreeLane> freeLanes) {
-        // 강습 또는 자유 레인 배정 로직
-        if (isChild) {
-            for (ClassLane lane : classLanes) {
-                if (lane.assignChildLane(person)) return;
+    public void assignChildLane(Person person, List<ClassLane> classLanes){
+        for (ClassLane lane : classLanes) {
+            if (lane.checkIfChildLane()){
+                lane.printResult(person);
+                return;
             }
         }
+        System.out.println("배정 가능한 어린이 레인이 없습니다. 프로그램을 다시 실행해주세요.");
+    }
 
-        if (choice == 1) {
-            for (ClassLane lane : classLanes) {
-                if (person.getExp() >= lane.getMinExp()) {
-                    lane.assignLane(person);
+    public void assignClassLane(Person person, List<ClassLane> classLanes){
+        ClassLane resultLane = null;
+        for (ClassLane lane : classLanes) {
+            if (lane.checkIfSuitableLane(person)){
+                resultLane = lane;
+            }
+        }
+        if (resultLane == null){
+            System.out.println("배정 가능한 강습 레인이 없습니다. 프로그램을 다시 실행해주세요.");
+        } else{
+            resultLane.printResult(person);
+        }
+    }
+
+    public void assignFreeLane(Person person, List<FreeLane> freeLanes, boolean useFin){
+        if (useFin){
+            for (FreeLane lane : freeLanes) {
+                if (lane.checkIfUseFin()){
+                    lane.printResult(person);
                     return;
                 }
             }
-        } else {
-            // 자유 레인 배정
+            System.out.println("배정 가능한 핀 레인이 없습니다. 프로그램을 다시 실행해주세요.");
+        }else{
+            FreeLane resultLane = null;
             for (FreeLane lane : freeLanes) {
-                if (person.getExp() >= lane.getMinExp()) {
-                    lane.assignLane(person);
-                    return;
+                if (lane.checkIfSuitableLane(person)){
+                    resultLane = lane;
                 }
+            }
+            if (resultLane == null){
+                System.out.println("배정 가능한 자유 레인이 없습니다. 프로그램을 다시 실행해주세요.");
+            } else{
+                resultLane.printResult(person);
             }
         }
     }

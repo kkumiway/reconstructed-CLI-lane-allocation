@@ -1,7 +1,9 @@
+package model;
+
 // 이용자의 정보
 public class Person {
-    private String name;
-    private int experience;
+    private final String name;
+    private final int experience;
 
     public Person(String name, int experience) {
         this.name = name;

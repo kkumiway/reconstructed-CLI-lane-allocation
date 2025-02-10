@@ -1,8 +1,10 @@
+package model;
+
 // 강습 수영 레인
 public class ClassLane extends Lane {
-    private String course; // 강좌명(초급, 중급, 상급, 마스터)
-    private int minExp; // 이 레인에 입장하기 위해 필요한 최소 수영 경력(1개월, 3개월, 6개월, 12개월)
-    private boolean isChildLane; // 어린이 레인인지 여부
+    private final String course; // 강좌명(초급, 중급, 상급, 마스터)
+    private final int minExp; // 이 레인에 입장하기 위해 필요한 최소 수영 경력(1개월, 3개월, 6개월, 12개월)
+    private final boolean isChildLane; // 어린이 레인인지 여부
 
     public ClassLane(int openingTime, int closingTime, int laneNum, int length, double depth, String course, int minExp, boolean isChildLane) {
         super(openingTime, closingTime, laneNum, length, depth);
@@ -19,16 +21,22 @@ public class ClassLane extends Lane {
         return isChildLane;
     }
 
-    public void assignLane(Person person) {
-        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
+    public boolean checkIfChildLane(){
+        if (isChildLane){
+            return true;
+        }else {
+            return false;
+        }
     }
 
-    public boolean assignChildLane(Person person) {
-        if (isChildLane) {
-            System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
-            return true;
-        }
-        return false;
+    public boolean checkIfSuitableLane(Person person){
+        // 어린이 레인이 아닌 레인에서만 실행
+        // 지금 레인의 요구 경력 <= 이용자의 경력 < 다음 레인의 요구 경력일 때만 배정
+        return !isChildLane && (person.getExp() >= minExp);
+    }
+
+    public void printResult(Person person){
+        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
     }
 
     @Override

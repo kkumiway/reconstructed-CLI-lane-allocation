@@ -1,10 +1,15 @@
+package util;
+
+import model.ClassLane;
+import model.FreeLane;
+
 import java.util.List;
 
-public class Guide {
-    public Guide(){
+public class ScriptPrinter {
+    public ScriptPrinter(){
     }
 
-    public void printStartGuide(){
+    public void printStartScript(){
         System.out.println("************************************************");
         System.out.println("    🌊🌊🌊 카테부 수영장에 오신 것을 환영합니다! 🌊🌊🌊");
         System.out.println("************************************************");

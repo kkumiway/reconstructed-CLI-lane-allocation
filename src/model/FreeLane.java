@@ -1,7 +1,9 @@
+package model;
+
 // 자유 수영 레인
 public class FreeLane extends Lane {
-    private int minExp; // 이 레인에 입장하기 위해 필요한 최소 수영 경력(1개월, 3개월, 6개월, 12개월)
-    private boolean useFin; // 핀 사용 레인인지 여부
+    private final int minExp; // 이 레인에 입장하기 위해 필요한 최소 수영 경력(1개월, 3개월, 6개월, 12개월)
+    private final boolean useFin; // 핀 사용 레인인지 여부
 
     public FreeLane(int openingTime, int closingTime, int laneNum, int length, double depth, int minExp, boolean useFin) {
         super(openingTime, closingTime, laneNum, length, depth);
@@ -17,16 +19,27 @@ public class FreeLane extends Lane {
         return useFin;
     }
 
-    public void assignLane(Person person) {
-        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 자유 레인에 배정되었습니다.");
+    public boolean checkIfUseFin(){
+        if (useFin){
+            return true;
+        }else {
+            return false;
+        }
     }
 
-    public boolean assignFinLane(Person person) {
-        if (useFin) {
+    public boolean checkIfSuitableLane(Person person){
+        // 핀 레인이 아닌 레인에서만 실행
+        // 지금 레인의 요구 경력 <= 이용자의 경력 < 다음 레인의 요구 경력일 때만 배정
+        return !useFin && (person.getExp() >= minExp);
+    }
+
+    public void printResult(Person person){
+        if (useFin){
             System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(자유수영, 핀 사용)에 배정되었습니다.");
-            return true;
         }
-        return false;
+        else{
+            System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 자유 레인에 배정되었습니다.");
+        }
     }
 
     @Override

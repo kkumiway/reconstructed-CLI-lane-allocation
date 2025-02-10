@@ -1,3 +1,5 @@
+package model;
+
 public class Lane extends Pool {
     protected int laneNum; // 레인 번호
     protected int length;  // 25m or 50m

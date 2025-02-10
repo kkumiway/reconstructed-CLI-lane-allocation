@@ -1,3 +1,5 @@
+package model;
+
 public class Pool {
     protected int openingTime; // 개장 시간(24시)
     protected int closingTime; // 폐장 시간(24시)

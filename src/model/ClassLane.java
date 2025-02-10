@@ -1,3 +1,5 @@
+package model;
+
 // 강습 수영 레인
 public class ClassLane extends Lane {
     private String course; // 강좌명(초급, 중급, 상급, 마스터)

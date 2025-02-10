@@ -1,3 +1,5 @@
+package model;
+
 // 자유 수영 레인
 public class FreeLane extends Lane {
     private int minExp; // 이 레인에 입장하기 위해 필요한 최소 수영 경력(1개월, 3개월, 6개월, 12개월)

@@ -9,6 +9,26 @@
 - 자유 레인 배정: 자유 수영을 선택한 경우, 핀을 사용할지 여부에 따라 배정되는 레인이 달라집니다.
 - 예외 처리: 잘못된 입력에 대해 안내 메시지를 출력하고 재입력을 유도합니다.
 
+### 패키지 분리: 계층형
+```bazaar
+├── controller               # 프레젠테이션 계층
+│   └── Main.java
+│
+├── model                    # 도메인 계층
+│   ├── Pool.java
+│   ├── Lane.java
+│   ├── ClassLane.java
+│   ├── FreeLane.java
+│   └── Person.java
+│
+├── service                  # 비즈니스 로직 계층
+│   └── PoolService.java
+│
+└── util                     # 유틸리티 클래스
+    ├── InputValidator.java
+    └── ScriptPrinter.java
+```
+
 ### 시나리오
 ```
 1. 수영장 이용 시간 입력

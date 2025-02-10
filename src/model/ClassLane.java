@@ -2,9 +2,9 @@ package model;
 
 // 강습 수영 레인
 public class ClassLane extends Lane {
-    private String course; // 강좌명(초급, 중급, 상급, 마스터)
-    private int minExp; // 이 레인에 입장하기 위해 필요한 최소 수영 경력(1개월, 3개월, 6개월, 12개월)
-    private boolean isChildLane; // 어린이 레인인지 여부
+    private final String course; // 강좌명(초급, 중급, 상급, 마스터)
+    private final int minExp; // 이 레인에 입장하기 위해 필요한 최소 수영 경력(1개월, 3개월, 6개월, 12개월)
+    private final boolean isChildLane; // 어린이 레인인지 여부
 
     public ClassLane(int openingTime, int closingTime, int laneNum, int length, double depth, String course, int minExp, boolean isChildLane) {
         super(openingTime, closingTime, laneNum, length, depth);

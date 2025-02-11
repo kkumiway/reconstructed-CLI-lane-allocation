@@ -9,10 +9,6 @@ public class ClassLane extends Lane {
         this.course = course;
     }
 
-    public int getMinExp(){
-        return course.getMinExp();
-    }
-
     public boolean isChildLane(){
         return course == Course.CHILD;
     }
@@ -20,20 +16,15 @@ public class ClassLane extends Lane {
     public boolean checkIfSuitableLane(Person person){
         // 어린이 레인이 아닌 레인에서만 실행
         // 지금 레인의 요구 경력 <= 이용자의 경력 < 다음 레인의 요구 경력일 때만 배정
-        return !isChildLane() && (person.getExp() >= getMinExp());
+        return !isChildLane() && (person.getExp() >= course.getMinExp());
     }
 
     public void printResult(Person person){
-        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course + ")에 배정되었습니다.");
+        System.out.println("\n" + person.getName() + "님은 " + laneNum + "번 레인(" + course.getLabel() + ")에 배정되었습니다.");
     }
 
     @Override
     public void printStatus() {
-        if (isChildLane()){
-            System.out.println(laneNum + "번 레인 - 강좌명: 어린이 레인, 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
-        }
-        else{
-            System.out.println(laneNum + "번 레인 - 강좌명: " + course + "(최소 경력: " + minExp + "개월), 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
-        }
+        System.out.println(laneNum + "번 레인 - 강좌명: " + course.getLabel() + "(최소 경력: " + course.getMinExp() + "개월), 레인 길이: " + length + "m, 레인 수심: " + depth + "m");
     }
 }

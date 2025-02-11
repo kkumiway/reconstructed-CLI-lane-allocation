@@ -23,11 +23,11 @@ public class LaneAllocator {
 
     public List<FreeLane> getFreeLanes() {
         return List.of(
-                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 6, 25, 1.2, 1, false),
-                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 7, 25, 1.2, 3, false),
-                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 8, 25, 1.2, 6, false),
-                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 9, 50, 1.4, 12, false),
-                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 10, 50, 1.4, 1, true)
+                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 6, 25, 1.2, Course.BASIC),
+                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 7, 25, 1.2, Course.INTERMEDIATE),
+                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 8, 25, 1.2, Course.ADVANCED),
+                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 9, 50, 1.4, Course.MASTER),
+                new FreeLane(pool.getOpeningTime(), pool.getClosingTime(), 10, 50, 1.4, Course.FIN)
         );
     }
 
@@ -58,7 +58,7 @@ public class LaneAllocator {
     public void assignFreeLane(Person person, List<FreeLane> freeLanes, int useFin){
         if (useFin == 1){
             for (FreeLane lane : freeLanes) {
-                if (lane.checkIfUseFin()){
+                if (lane.useFin()){
                     lane.printResult(person);
                     return;
                 }

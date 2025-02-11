@@ -13,11 +13,11 @@ public class LaneAllocator {
 
     public List<ClassLane> getClassLanes() {
         return List.of(
-                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 1, 25, 0, "어린이", 0, true),
-                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 2, 25, 1.2, "초급", 1, false),
-                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 3, 25, 1.2, "중급", 3, false),
-                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 4, 50, 1.4, "상급", 6, false),
-                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 5, 50, 1.4, "마스터", 12, false)
+                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 1, 25, 0, Course.CHILD),
+                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 2, 25, 1.2, Course.BASIC),
+                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 3, 25, 1.2, Course.INTERMEDIATE),
+                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 4, 50, 1.4, Course.ADVANCED),
+                new ClassLane(pool.getOpeningTime(), pool.getClosingTime(), 5, 50, 1.4, Course.MASTER)
         );
     }
 
@@ -33,7 +33,7 @@ public class LaneAllocator {
 
     public void assignChildLane(Person person, List<ClassLane> classLanes){
         for (ClassLane lane : classLanes) {
-            if (lane.checkIfChildLane()){
+            if (lane.isChildLane()){
                 lane.printResult(person);
                 return;
             }

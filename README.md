@@ -22,7 +22,7 @@
 │   └── Person.java
 │
 ├── service                  # 비즈니스 로직 계층
-│   └── PoolService.java
+│   └── LaneAllocator.java
 │
 └── util                     # 유틸리티 클래스
     ├── InputValidator.java

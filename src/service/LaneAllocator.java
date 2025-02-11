@@ -4,10 +4,10 @@ import model.*;
 
 import java.util.List;
 
-public class PoolService {
+public class LaneAllocator {
     private final Pool pool;
 
-    public PoolService(Pool pool) {
+    public LaneAllocator(Pool pool) {
         this.pool = pool;
     }
 
